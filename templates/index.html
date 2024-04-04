@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20 Questions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Let's play!</h1>
+    <form method="POST" action="/">
+        <p>Question: <input type="text" name="asker_input" required></p>
+        <div class="form-group">
+            <input type="radio" id="yes" name="thinker_input" value="Yes" class="for-radio">
+            <label for="yes">Yes</label>
+            <input type="radio" id="no" name="thinker_input" value="No" class="for-radio">
+            <label for="no">No</label>
+        </div>
+        <button type="submit" name="next">Next</button>
+        <button type="submit" name="done" value="true">Done</button>
+    </form>
+    <p>Questions Asked: {{ question_counter }}</p>
+</body>
+</html>

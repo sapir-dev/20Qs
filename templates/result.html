@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Game Result</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Question</th>
+                <th>Reply</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for question, reply in questions_and_answers %}
+            <tr>
+                <td>{{ question }}</td>
+                <td>{{ reply }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p>Total Questions Asked: {{ total_questions }}</p>
+    <p>Thanks for playing! Please download the result and send to Yotam</p>
+    <form action="/download_csv">
+        <button type="submit">Download result</button>
+    </form>
+</body>
+</html>
